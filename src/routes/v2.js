@@ -80,13 +80,6 @@ async function handleUpdate(req, res) {
     console.error(error) }
 }
 
-// async function handlePartialUpdate(req, res) {
-//   const id = req.params.id;
-//   const obj = req.body;
-//   let updatedRecord = await req.model.update(id, obj)
-//   res.status(200).json(updatedRecord);
-// }
-
 async function handleDelete(req, res) {
   try {
     let id = req.params.id;
