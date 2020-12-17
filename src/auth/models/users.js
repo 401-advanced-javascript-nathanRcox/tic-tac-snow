@@ -1,15 +1,19 @@
 'use strict';
+
 require('dotenv').config();
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const SECRET = process.env.SECRET;
+const SECRET = "secretstuff";
 
 const users = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  displayname: { type: String, required: true },
+  // wins: { type: Number, required: true},
+  // games: { type: Number, required: true},
   role: { type: String, required: true, default: 'user', enum: ['user', 'writer', 'editor', 'admin'] },
 }, { toJSON: { virtuals: true }});
 

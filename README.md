@@ -1,19 +1,16 @@
-# LAB - Class 07
+# LAB - Class 09
 
-## Project: Access Control
+## Project: Auth Module Final Project
 
-### Author: Nathan Cox
+### Authors: Sowmya Billakanti, Ricardo Barcenas, Jeremy Penning, and Nathan Cox
 
 ### Contributors
 
-- Classmates: Dina Ayoub
-- Code Fellows TAs: N/A
-
 ### Links and Resources
 
-- [CI/CD](https://github.com/401-advanced-javascript-nathanRcox/auth-api/actions): all the test I wrote are passing, so I don't understand the result of these github actions.
+- [CI/CD](): 
 <!-- - [Back-end Server URL](http://xyz.com) (when applicable) -->
-- [Front-end Application](https://nrc-api-auth.herokuapp.com/): I don't think it works. But, really, who cares?
+- [Front-end Application]()
 
 ### Setup
 
@@ -32,9 +29,9 @@
 
 #### Tests
 
-- How do you run tests?: `npm test` from the root.
-- Any tests of note?: All the tests that I wrote passed; but I didn't write all of the tests.
-- Describe any tests that you did not complete, that skipped, and etc: I wrote tests for the auth routes, as required, and for v1 of the api, sans the the delete function, but I didn't get to writing any tests for v2 (authenticated). 
+- How do you run tests?:
+- Any tests of note?:
+- Describe any tests that you did not complete, that skipped, and etc: 
 
 #### UML
-![UML](./authentication-UML.png)
+![UML]()
