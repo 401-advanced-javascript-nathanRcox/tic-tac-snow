@@ -1,15 +1,17 @@
 'use strict';
+require('dotenv').config();
 
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
+const SECRET = process.env.SECRET;
+
 const users = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, required: true, default: 'user', enum: ['user', 'editor', 'admin'] },
-});
-// }, { toObject: { getters: true } }); // What would this do if we use this instead of just });
+  role: { type: String, required: true, default: 'user', enum: ['user', 'writer', 'editor', 'admin'] },
+}, { toJSON: { virtuals: true }});
 
 // Adds a virtual field to the schema. We can see it, but it never persists
 // So, on every user object ... this.token is now readable!
@@ -17,12 +19,13 @@ users.virtual('token').get(function () {
   let tokenObject = {
     username: this.username,
   }
-  return jwt.sign(tokenObject, process.env.SECRET)
+  return jwt.sign(tokenObject, SECRET)
 });
 
 users.virtual('capabilities').get(function () {
   let acl = {
     user: ['read'],
+    writer: ['read', 'create'],
     editor: ['read', 'create', 'update'],
     admin: ['read', 'create', 'update', 'delete']
   };
@@ -46,14 +49,13 @@ users.statics.authenticateBasic = async function (username, password) {
 // BEARER AUTH
 users.statics.authenticateWithToken = async function (token) {
   try {
-    const parsedToken = jwt.verify(token, process.env.SECRET);
-    const user = this.findOne({ username: parsedToken.username })
+    const parsedToken = jwt.verify(token, SECRET);
+    const user = await this.findOne({ username: parsedToken.username })
     if (user) { return user; }
     throw new Error("User Not Found");
   } catch (e) {
     throw new Error(e.message)
   }
 }
-
 
 module.exports = mongoose.model('users', users);

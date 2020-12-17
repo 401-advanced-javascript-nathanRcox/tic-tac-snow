@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "lint": "eslint **/*.js",
     "watch": "nodemon index.js",
     "test-watch": "jest --watchAll",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "jest": {
     "testEnvironment": "node"
@@ -17,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@code-fellows/supergoose": "^1.0.11",
+    "eslint": "^7.14.0",
     "base-64": "^1.0.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
@@ -25,6 +27,16 @@
     "jest": "^26.6.3",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.15",
-    "morgan": "^1.10.0"
-  }
+    "morgan": "^1.10.0",
+    "supertest": "^6.0.1",
+    "method-override": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-advanced-javascript-nathanRcox/auth-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/401-advanced-javascript-nathanRcox/auth-api/issues"
+  },
+  "homepage": "https://github.com/401-advanced-javascript-nathanRcox/auth-api#readme"
 }
