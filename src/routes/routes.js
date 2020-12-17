@@ -1,12 +1,28 @@
 'use strict';
-
+require('dotenv').config();
 const express = require('express');
 const authRouter = express.Router();
 
 const User = require('../auth/models/users.js');
 const basicAuth = require('../auth/middleware/basic.js')
 const bearerAuth = require('../auth/middleware/bearer.js')
+
+const GameBoard = require('../game/GameBoard')
 const permissions = require('../auth/middleware/acl.js')
+
+const { v4: uuidv4 } = require('uuid'); 
+
+
+authRouter.post('/game', bearerAuth, async(req, res, next) => {
+  try {
+    let game = new GameBoard();
+    // const gameRecord = await game.save();
+    
+    res.status(201).json(game.uuid);
+  } catch (e) {
+    next(e.message)
+  }
+});
 
 authRouter.post('/signup', async (req, res, next) => {
   try {
