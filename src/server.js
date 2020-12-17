@@ -30,6 +30,8 @@ app.use('/api/v1', v1Routes);
 app.use('/api/v2', v2Routes);
 app.use(authRoutes);
 
+app.get('/', (req, res) => res.send('Howdy, pardner!'))
+
 // Catchalls
 app.use('*', notFound);
 app.use(errorHandler);

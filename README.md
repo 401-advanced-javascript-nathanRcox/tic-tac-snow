@@ -11,7 +11,7 @@
 
 ### Links and Resources
 
-- [CI/CD](https://github.com/401-advanced-javascript-nathanRcox/bearer-auth/actions)
+- [CI/CD](https://github.com/401-advanced-javascript-nathanRcox/auth-api/actions): all the test I wrote are passing, so I don't understand the result of these github actions.
 <!-- - [Back-end Server URL](http://xyz.com) (when applicable) -->
 - [Front-end Application](https://nrc-bearer-auth.herokuapp.com/)
 
