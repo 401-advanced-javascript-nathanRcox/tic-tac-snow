@@ -1,27 +1,21 @@
 'use strict';
 
-let BoardSpot = require('./BoardSpot');
-const createUUID = () => {
-  const uuidLength = 20; // We could pass in this value, but it's only used internally.
-  const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
-  let newUUID = '';
-  for (let i = 0; i < uuidLength; i++) {
-    newUUID =+ charset.charAt(Math.floor(Math.random() * Math.floor(charset.length)));
-  } 
-  console.log(newUUID);
-  return newUUID;
-};
-
+const { v4: uuidv4 } = require('uuid');
 
 class GameBoard {
-  constructor(){
-    this.uuid = createUUID();
-    this.playerId1 = null;
-    this.playerName1 = null;
+  constructor(player1Obj){
+    this.uuid = uuidv4(); 
+    this.playerId1 = player1Obj[0]._id;
+    this.playerName1 = player1Obj[0].displayname;
     this.playerId2 = null;
-    this.playerName1 = null;
+    this.playerName2 = null;
     this.currentPlayer = null;
-    this.gameBoard = null;
+    this.gameBoard = {
+      r1c1:null, r1c2:null, r1c3:null,// Row One
+      r2c1:null, r2c2:null, r2c3:null,// Row Two
+      r3c1:null, r3c2:null, r3c3:null, // Row Three
+    };
   }
 }
+
 module.exports = GameBoard;
