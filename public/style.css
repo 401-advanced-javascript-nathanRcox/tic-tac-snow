@@ -1,0 +1,29 @@
+body {
+    background-image: url(https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQreBTcNBMQ80U9aiQoqq1ZnAa4YqLdjR1zC_qucIyEfIYNPqSC6ImUkUPHsKOla1mNh1eSH0zMVeSU3stTYgV6O6lKYUOrmHrB4KNL-bAAus0sp8RvuQi_jw&usqp=CAE);
+    background-size: cover;
+    filter: brightness(80%);
+}
+
+h1 {
+    height: 15vh;
+}
+
+header {
+    text-align: center;
+    font-weight: bold;
+    color:black;
+    text-shadow: rgb(97, 9, 9);
+    font-size: large;
+    height: 25vh;
+}
+
+section {
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    color: rgb(8, 2, 2);
+}
+
+
+
+
